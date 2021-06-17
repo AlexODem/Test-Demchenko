@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "517070538449",
+    "project_id": "sparktestdemchenko",
+    "storage_bucket": "sparktestdemchenko.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:517070538449:android:81d8dbfdf1b16b0a3327f0",
+        "android_client_info": {
+          "package_name": "com.example.sparktestdemchenko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "517070538449-26qor090fo2t3pqeldb58hc84qnlso8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxQtGPfApgmi00yVPVlv0VRVyp1_Buxmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "517070538449-26qor090fo2t3pqeldb58hc84qnlso8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

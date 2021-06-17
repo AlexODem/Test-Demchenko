@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sparktestdemchenko.ui.LaunchActivity">
+    <item
+        android:id="@+id/action_add_email"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_inbox_in_regular"
+        android:title=""
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/MessagesListFragment">
+
+    <fragment
+        android:id="@+id/MessagesListFragment"
+        android:name="com.example.sparktestdemchenko.ui.fragment.MessageListFragment"
+        android:label="@string/inbox"
+        tools:layout="@layout/fragment_message_list"
+        app:startDestination="@id/action_MessageListFragment_to_MessageDetailsFragment">
+
+        <action
+            android:id="@+id/action_MessageListFragment_to_MessageDetailsFragment"
+            app:destination="@id/MessageDetailsFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/MessageDetailsFragment"
+        android:name="com.example.sparktestdemchenko.ui.fragment.MessageDetailsFragment"
+        tools:layout="@layout/fragment_message_details"/>
+</navigation>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toBottomOf="@id/divider"
+    android:layout_marginTop="@dimen/middle_padding"
+    android:paddingBottom="@dimen/max_padding"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/hint_from"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/min_padding"
+        android:text="@string/from"
+        android:layout_marginStart="@dimen/min_padding"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_from"
+        android:textSize="@dimen/small_text"
+        android:textColor="@color/text_gray"/>
+
+    <TextView
+        android:id="@+id/tv_from"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/middle_text"
+        android:layout_marginTop="@dimen/min_padding"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toStartOf="@id/tv_date"
+        app:layout_constraintStart_toEndOf="@id/hint_from"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Cambly" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="12-01-2021"
+        android:layout_marginStart="@dimen/small_margin"
+        android:textSize="@dimen/small_text"
+        android:layout_marginEnd="@dimen/min_padding"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_from"
+        android:textColor="@color/text_gray"/>
+
+
+
+    <TextView
+        android:id="@+id/tv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_from"
+        tools:text="Преподаватели - только носители языка, живущих в 162 странах мира.\nИзучайте английский по международным стандартам.\nПроходите уроки в любое время суток, 24/7.\nПопробуйте 20 специальных курсов по темам и уровням, включая международный бизнес-английский."
+        android:textColor="@color/text_color"
+        android:fontFamily="sans-serif"
+        android:layout_marginTop="@dimen/min_padding"
+        android:layout_marginHorizontal="@dimen/min_padding"
+        android:textSize="@dimen/middle_text"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="min_padding">16dp</dimen>
+    <dimen name="max_padding">24dp</dimen>
+    <dimen name="small_margin">8dp</dimen>
+    <dimen name="height_item">200dp</dimen>
+    <dimen name="indicator_size">8dp</dimen>
+    <dimen name="medium_text">16sp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="indicator_margin">17dp</dimen>
+    <dimen name="min_text_size">15sp</dimen>
+    <dimen name="small_padding">2dp</dimen>
+    <dimen name="middle_padding">4dp</dimen>
+    <dimen name="middle_text">18sp</dimen>
+    <dimen name="small_text">14sp</dimen>
+    <dimen name="panel_height">60dp</dimen>
+    <dimen name="progress_item_size">40dp</dimen>
+
+
+</resources>
