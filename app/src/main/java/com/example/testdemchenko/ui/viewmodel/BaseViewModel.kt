@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.viewmodel
+package com.example.testdemchenko.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

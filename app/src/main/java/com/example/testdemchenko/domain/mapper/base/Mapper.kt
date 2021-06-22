@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.domain.mapper.base
+package com.example.testdemchenko.domain.mapper.base
 
 interface Mapper<T,R> {
     fun map(source: T): R

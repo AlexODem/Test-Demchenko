@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.data.util
+package com.example.testdemchenko.data.util
 
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

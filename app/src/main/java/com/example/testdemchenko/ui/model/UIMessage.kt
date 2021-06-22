@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.model
+package com.example.testdemchenko.ui.model
 
 import java.io.Serializable
 
@@ -10,4 +10,5 @@ data class UIMessage(
     val preview: String?,
     var read: Boolean,
     var deleted: Boolean,
+    var wasChangedOffline: Boolean = false
 ) : Serializable

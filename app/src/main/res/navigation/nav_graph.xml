@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/MessagesListFragment"
-        android:name="com.example.sparktestdemchenko.ui.fragment.MessageListFragment"
+        android:name="com.example.testdemchenko.ui.fragment.MessageListFragment"
         android:label="@string/inbox"
         tools:layout="@layout/fragment_message_list"
         app:startDestination="@id/action_MessageListFragment_to_MessageDetailsFragment">
@@ -22,6 +22,6 @@
     </fragment>
     <fragment
         android:id="@+id/MessageDetailsFragment"
-        android:name="com.example.sparktestdemchenko.ui.fragment.MessageDetailsFragment"
+        android:name="com.example.testdemchenko.ui.fragment.MessageDetailsFragment"
         tools:layout="@layout/fragment_message_details"/>
 </navigation>

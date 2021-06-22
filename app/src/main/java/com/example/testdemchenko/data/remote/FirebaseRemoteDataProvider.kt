@@ -1,11 +1,13 @@
-package com.example.sparktestdemchenko.data.remote
+package com.example.testdemchenko.data.remote
 
-import com.example.sparktestdemchenko.domain.model.MessageResponse
-import com.example.sparktestdemchenko.domain.model.AppQuery
-import com.example.sparktestdemchenko.domain.mapper.base.Mapper
+import com.example.testdemchenko.domain.model.MessageResponse
+import com.example.testdemchenko.domain.model.AppQuery
+import com.example.testdemchenko.domain.mapper.base.Mapper
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
+import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.subjects.CompletableSubject
 import io.reactivex.subjects.PublishSubject
 
 
@@ -46,6 +48,31 @@ class FirebaseRemoteDataProvider(
             "${message.key}" to messageValue,
         )
         reference.updateChildren(messageUpdates)
+    }
+
+    override fun updateMessageList(messages: List<MessageResponse>): Completable {
+        val completableSubject = CompletableSubject.create()
+
+        val reference = firebaseDatabase.reference
+        val messageUpdates = hashMapOf<String, Any>()
+
+        messages.forEach { message ->
+            val messageValue = message.toMap()
+            messageUpdates["${message.key}"] = messageValue
+        }
+
+        reference.updateChildren(messageUpdates)
+            .addOnSuccessListener {
+                completableSubject.onComplete()
+            }
+            .addOnFailureListener {
+                completableSubject.onError(it)
+            }
+
+        if (messages.isEmpty())
+            completableSubject.onComplete()
+
+        return completableSubject
     }
 
     override fun addNewMessage(message: MessageResponse) : Observable<MessageResponse> {

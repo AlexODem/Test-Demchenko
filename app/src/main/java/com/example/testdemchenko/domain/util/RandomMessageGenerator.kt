@@ -1,8 +1,7 @@
 package com.example.sparktestdemchenko.domain.util
 
-import com.example.sparktestdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.ui.model.UIMessage
 import org.joda.time.DateTime
-import java.util.*
 import kotlin.random.Random
 
 object RandomMessageGenerator {

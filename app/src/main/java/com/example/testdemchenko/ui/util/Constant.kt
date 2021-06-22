@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.util
+package com.example.testdemchenko.ui.util
 
 const val MESSAGE_UPDATES_REQUEST_KEY = "MessageUpdates"
 const val MESSAGE_DETAILS_REQUEST_KEY = "MessageDetails"

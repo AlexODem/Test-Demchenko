@@ -1,11 +1,13 @@
-package com.example.sparktestdemchenko.ui.fragment
+package com.example.testdemchenko.ui.fragment
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -16,12 +18,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sparktestdemchenko.R
 import com.example.sparktestdemchenko.databinding.FragmentMessageListBinding
-import com.example.sparktestdemchenko.getMessageViewModel
-import com.example.sparktestdemchenko.ui.adapter.MessageListAdapter
-import com.example.sparktestdemchenko.ui.model.MessageAction
-import com.example.sparktestdemchenko.ui.model.UIMessage
-import com.example.sparktestdemchenko.ui.util.*
-import com.example.sparktestdemchenko.ui.viewmodel.MessagesViewModel
+import com.example.testdemchenko.getMessageViewModel
+import com.example.testdemchenko.ui.adapter.MessageListAdapter
+import com.example.testdemchenko.ui.model.MessageAction
+import com.example.testdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.ui.util.*
+import com.example.testdemchenko.ui.viewmodel.MessagesViewModel
 
 
 class MessageListFragment : Fragment() {
@@ -46,7 +48,7 @@ class MessageListFragment : Fragment() {
         if (binding == null) {
             binding = FragmentMessageListBinding.inflate(inflater, container, false)
 
-            viewModel = getMessageViewModel(this)
+            viewModel = getMessageViewModel(requireContext().applicationContext, this)
 
             adapter = MessageListAdapter(
                 onClickListener = { message ->
@@ -65,7 +67,11 @@ class MessageListFragment : Fragment() {
             binding?.rvMessageList?.layoutManager = linearLayoutManager
             binding?.rvMessageList?.adapter = adapter
 
-            viewModel.getMessageList()
+            if (isNetworkConnected(requireContext())) {
+                viewModel.chekUpdateAndLoadList()
+            } else {
+                viewModel.getMessageList()
+            }
 
             observeMessages()
             observeLoadingIndicator()
@@ -101,6 +107,8 @@ class MessageListFragment : Fragment() {
             MessageAction.READ -> adapter?.updateMessages(message)
             MessageAction.DELETE -> adapter?.deleteMessages(message)
         }
+        if (isNetworkConnected(requireContext()).not())
+            message.wasChangedOffline = true
         viewModel.updateMessage(message)
     }
 
@@ -158,16 +166,33 @@ class MessageListFragment : Fragment() {
 
     private fun onScrolledToBottom() {
         adapter?.let { adapter ->
-            if (adapter.isLoading().not()) {
-                viewModel.loadNextPage()
+            if (isNetworkConnected(requireContext())) {
+                if (adapter.isLoading().not()) {
+                    viewModel.loadNextPage()
+                }
             }
         }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_add_email)
-            viewModel.addNewMessage()
+        if (item.itemId == R.id.action_add_email) {
+            if (isNetworkConnected(requireContext())) {
+                viewModel.addNewMessage()
+            } else {
+                showErrorMessage()
+            }
+        }
         return super.onOptionsItemSelected(item)
     }
+
+    private fun showErrorMessage() {
+        val info = getString(R.string.string_message_id)
+        Toast.makeText(
+            context,
+            Html.fromHtml("<font color='#F44336'>$info</font>"),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }
 

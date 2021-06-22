@@ -1,12 +1,10 @@
-package com.example.sparktestdemchenko.ui
+package com.example.testdemchenko.ui
 
 import android.content.res.Configuration
-import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,9 +12,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.sparktestdemchenko.R
 import com.example.sparktestdemchenko.databinding.ActivityLaunchBinding
-import com.example.sparktestdemchenko.ui.fragment.MessageDetailsFragment
-import com.example.sparktestdemchenko.ui.fragment.MessageListFragment
-import com.example.sparktestdemchenko.ui.util.screenSize
+import com.example.testdemchenko.ui.fragment.MessageDetailsFragment
+import com.example.testdemchenko.ui.fragment.MessageListFragment
+import com.example.testdemchenko.ui.util.screenSize
 
 
 class LaunchActivity : AppCompatActivity() {

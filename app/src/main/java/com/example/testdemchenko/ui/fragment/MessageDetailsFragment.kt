@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.fragment
+package com.example.testdemchenko.ui.fragment
 
 import android.content.res.Configuration
 import android.os.Bundle
@@ -12,10 +12,10 @@ import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import com.example.sparktestdemchenko.R
 import com.example.sparktestdemchenko.databinding.FragmentMessageDetailsBinding
-import com.example.sparktestdemchenko.ui.LaunchActivity
-import com.example.sparktestdemchenko.ui.model.MessageAction
-import com.example.sparktestdemchenko.ui.model.UIMessage
-import com.example.sparktestdemchenko.ui.util.*
+import com.example.testdemchenko.ui.LaunchActivity
+import com.example.testdemchenko.ui.model.MessageAction
+import com.example.testdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.ui.util.*
 
 
 class MessageDetailsFragment : Fragment() {

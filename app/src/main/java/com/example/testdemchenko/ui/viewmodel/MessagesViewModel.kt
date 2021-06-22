@@ -1,17 +1,20 @@
-package com.example.sparktestdemchenko.ui.viewmodel
+package com.example.testdemchenko.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.sparktestdemchenko.data.util.doOnIoSubscribeOnMain
-import com.example.sparktestdemchenko.domain.usecase.AddNewMessageUseCase
-import com.example.sparktestdemchenko.domain.usecase.GetMessagesListUseCase
-import com.example.sparktestdemchenko.domain.usecase.UpdateMessageUseCase
-import com.example.sparktestdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.data.util.doOnIoSubscribeOnMain
+import com.example.testdemchenko.domain.model.DatabaseMessage
+import com.example.testdemchenko.domain.usecase.AddNewMessageUseCase
+import com.example.testdemchenko.domain.usecase.GetMessagesListUseCase
+import com.example.testdemchenko.domain.usecase.UpdateMessageUseCase
+import com.example.testdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.domain.usecase.UpdateFromDatabaseUseCase
 
 class MessagesViewModel(
     private val getMessagesListUseCase: GetMessagesListUseCase,
     private val updateMessageUseCase: UpdateMessageUseCase,
-    private val addNewMessageUseCase: AddNewMessageUseCase
+    private val addNewMessageUseCase: AddNewMessageUseCase,
+    private val updateFromDatabaseUseCase: UpdateFromDatabaseUseCase,
 ) : BaseViewModel() {
 
     private val _messages = MutableLiveData<List<UIMessage>>()
@@ -31,6 +34,24 @@ class MessagesViewModel(
     val isPageLoading: LiveData<Boolean>
         get() = _isPageLoading
 
+
+    fun chekUpdateAndLoadList() {
+        updateFromDatabaseUseCase.readFromDatabase()
+            .doOnSubscribe {
+                _isLoading.postValue(true)
+            }
+            .subscribe(
+                ::updateMessages,
+                ::onError
+            )
+            .addToClearedDisposable()
+    }
+
+    private fun updateMessages(it: List<DatabaseMessage>) {
+        updateFromDatabaseUseCase.updateFromDatabase(it).subscribe {
+            getMessageList()
+        }.addToClearedDisposable()
+    }
 
     fun getMessageList() {
         getMessagesListUseCase.execute()
@@ -83,11 +104,10 @@ class MessagesViewModel(
 
     private fun onSuccess(messages: List<UIMessage>) {
         _messages.postValue(messages)
+        _isLoading.postValue(false)
     }
 
     private fun onError(throwable: Throwable) {
 
     }
-
-
 }
