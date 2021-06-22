@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.domain.usecase.base
+package com.example.testdemchenko.domain.usecase.base
 
 import io.reactivex.Observable
 

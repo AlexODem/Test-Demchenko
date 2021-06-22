@@ -1,7 +1,7 @@
 package com.example.sparktestdemchenko.domain.mapper
 
-import com.example.sparktestdemchenko.domain.model.AppQuery
-import com.example.sparktestdemchenko.domain.mapper.base.Mapper
+import com.example.testdemchenko.domain.model.AppQuery
+import com.example.testdemchenko.domain.mapper.base.Mapper
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.Query
 

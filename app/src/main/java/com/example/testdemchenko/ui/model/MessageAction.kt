@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.model
+package com.example.testdemchenko.ui.model
 
 enum class MessageAction {
     READ, DELETE

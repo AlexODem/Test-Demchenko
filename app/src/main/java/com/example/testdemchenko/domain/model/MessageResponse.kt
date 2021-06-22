@@ -1,8 +1,7 @@
-package com.example.sparktestdemchenko.domain.model
+package com.example.testdemchenko.domain.model
 
 import com.google.firebase.database.Exclude
 import java.io.Serializable
-import java.util.*
 
 data class MessageResponse(
     var key: String,

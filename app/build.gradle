@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -57,6 +58,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
     implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
 
+    implementation "androidx.room:room-rxjava2:2.3.0"
+    implementation("androidx.room:room-runtime:2.3.0")
+    kapt "androidx.room:room-compiler:2.3.0"
 
     implementation 'joda-time:joda-time:2.10.10'
 

@@ -1,8 +1,8 @@
-package com.example.sparktestdemchenko.domain.util
+package com.example.testdemchenko.domain.util
 
-import com.example.sparktestdemchenko.domain.model.MessageResponse
+import com.example.testdemchenko.domain.model.DatabaseMessage
 
-class MessagesListUtils(private var list: List<MessageResponse>) {
+class MessagesListUtils(private var list: List<DatabaseMessage>) {
 
     fun sort(): MessagesListUtils {
         list = list.sortedBy { it.date }.reversed()

@@ -1,15 +1,15 @@
-package com.example.sparktestdemchenko.domain.model
+package com.example.testdemchenko.domain.model
 
 data class PageInfo(
     private var isEndList: Boolean = false,
-    private var lastItem: MessageResponse? = null
+    private var lastItem: String? = null
 ) {
 
     fun setEndOfList() {
         isEndList = true
     }
 
-    fun setLastItem(lastItem: MessageResponse) {
+    fun setLastItem(lastItem: String) {
         this.lastItem = lastItem
     }
 

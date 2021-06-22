@@ -1,14 +1,14 @@
-package com.example.sparktestdemchenko.domain.usecase
+package com.example.testdemchenko.domain.usecase
 
-import com.example.sparktestdemchenko.data.datasource.repository.message.MessageRepository
-import com.example.sparktestdemchenko.domain.model.MessageResponse
-import com.example.sparktestdemchenko.domain.mapper.base.Mapper
-import com.example.sparktestdemchenko.domain.usecase.base.VoidUseCaseWithParam
-import com.example.sparktestdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.data.datasource.repository.message.MessageRepository
+import com.example.testdemchenko.domain.mapper.base.Mapper
+import com.example.testdemchenko.domain.model.DatabaseMessage
+import com.example.testdemchenko.domain.usecase.base.VoidUseCaseWithParam
+import com.example.testdemchenko.ui.model.UIMessage
 
 class UpdateMessageUseCase(
     private val repository: MessageRepository,
-    private val mapper: Mapper<MessageResponse, UIMessage>
+    private val mapper: Mapper<DatabaseMessage, UIMessage>
 ) : VoidUseCaseWithParam<UpdateMessageUseCase.Param> {
 
     override fun execute(param: Param) {

@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.domain.model
+package com.example.testdemchenko.domain.model
 
 data class AppQuery(
     val startItem: String? = null,

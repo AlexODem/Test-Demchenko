@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.adapter
+package com.example.testdemchenko.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sparktestdemchenko.R
 import com.example.sparktestdemchenko.databinding.ItemMessageBinding
 import com.example.sparktestdemchenko.databinding.ItemProgressBinding
-import com.example.sparktestdemchenko.ui.model.MessageAction
-import com.example.sparktestdemchenko.ui.model.UIMessage
-import com.example.sparktestdemchenko.ui.util.DateFormat
+import com.example.testdemchenko.ui.model.MessageAction
+import com.example.testdemchenko.ui.model.UIMessage
+import com.example.testdemchenko.ui.util.DateFormat
 
 class MessageListAdapter(
     private val onClickListener: (message: UIMessage) -> Unit,

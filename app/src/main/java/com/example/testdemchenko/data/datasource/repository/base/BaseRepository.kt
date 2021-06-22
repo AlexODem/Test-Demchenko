@@ -6,4 +6,5 @@ abstract class BaseRepository(private val repositoryProvider: RepositoryProvider
 
     fun getRemoteDataProvider() = repositoryProvider.getRemoteDataProvider()
 
+    fun getLocalDataProvider() = repositoryProvider.getLocalDataProvider()
 }

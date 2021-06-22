@@ -1,4 +1,4 @@
-package com.example.sparktestdemchenko.ui.util
+package com.example.testdemchenko.ui.util
 
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
